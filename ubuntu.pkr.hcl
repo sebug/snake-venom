@@ -37,7 +37,7 @@ build {
     execute_command = "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'"
     inline          = ["apt-get update",
     "apt-get upgrade -y",
-    "apt-get install -y qemu-kvm virt-top libvirt-bin",
+    "apt-get install -y qemu-kvm virt-top libvirt-daemon-system libvirt-clients",
     "mkdir -p /var/kvm/images",
     "apt-get install -y virtinst",
     "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
