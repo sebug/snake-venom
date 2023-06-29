@@ -16,4 +16,4 @@ Set the right subscription:
     az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<subscription_id> --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     az account show --query "{ subscription_id: id }"
 
-Set the following variables in your code space: client_id, client_secret, tenant_id, subscription_id
+Set the following variables in your code space: build_client_id, build_client_secret, build_tenant_id, build_subscription_id
