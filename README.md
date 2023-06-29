@@ -17,3 +17,5 @@ Set the right subscription:
     az account show --query "{ subscription_id: id }"
 
 Set the following variables in your code space: build_client_id, build_client_secret, build_tenant_id, build_subscription_id
+
+These environment variables are then referenced in the ubuntu.pkr.hcl file.
