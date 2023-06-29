@@ -37,3 +37,5 @@ Create a resource group SnakeVenomRG. Go back to the cloud shell
     git clone https://github.com/sebug/snake-venom
     cd snake-venom
     az deployment group create -f ./main.bicep -g SnakeVenomRG
+
+After that you should be able to Bastion to your machine. startx so that you can deal with the different VMs you're going to create (I know this is a ridiculous amount of overhead to have the full desktop installed, but it's a tradeoff we make when we are not able to use a physical machine).
