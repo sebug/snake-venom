@@ -39,6 +39,7 @@ param osDiskType string = 'Premium_LRS'
 param osDiskDeleteOption string = 'Detach'
 param virtualMachineSize string = 'Standard_D4s_v3'
 param nicDeleteOption string = 'Detach'
+param imageId string
 param adminUsername string
 
 var nsgId = resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', networkSecurityGroupName)
@@ -124,7 +125,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-03-01' = {
         deleteOption: osDiskDeleteOption
       }
       imageReference: {
-        id: '/subscriptions/5a179a17-4247-44c0-8d1c-40a3caa8f6fd/resourceGroups/ImageBuildRG/providers/Microsoft.Compute/images/nestedKVMImage'
+        id: imageId
       }
     }
     networkProfile: {
