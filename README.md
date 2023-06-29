@@ -19,3 +19,13 @@ Set the right subscription:
 Set the following variables in your code space: build_client_id, build_client_secret, build_tenant_id, build_subscription_id
 
 These environment variables are then referenced in the ubuntu.pkr.hcl file.
+
+Now download packer (you can find the latest version [here](https://developer.hashicorp.com/packer/downloads))
+
+    curl -O https://releases.hashicorp.com/packer/1.9.1/packer_1.9.1_linux_amd64.zip
+    unzip packer_1.9.1_linux_amd64.zip
+    ./packer --help
+
+If that works you're ready to go.
+
+    ./packer build ubuntu.pkr.hcl
