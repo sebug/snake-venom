@@ -41,6 +41,10 @@ param virtualMachineSize string = 'Standard_D4s_v3'
 param nicDeleteOption string = 'Detach'
 param imageId string
 param adminUsername string
+@description('Password for the virtual machines')
+@minLength(12)
+@secure()
+param adminPassword string
 
 var nsgId = resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', networkSecurityGroupName)
 var vnetName = virtualNetworkName
@@ -141,9 +145,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       computerName: virtualMachineComputerName
       adminUsername: adminUsername
-      linuxConfiguration: {
-        disablePasswordAuthentication: true
-      }
+      adminPassword: adminPassword
     }
     diagnosticsProfile: {
       bootDiagnostics: {

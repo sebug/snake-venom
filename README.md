@@ -29,3 +29,11 @@ Now download packer (you can find the latest version [here](https://developer.ha
 If that works you're ready to go.
 
     ./packer build ubuntu.pkr.hcl
+
+note the generated image id (of the form /subscriptions/.../resourceGroups/ImageBuildRG/providers/Microsoft.Compute/images/nestedKVMImage ) - you'll need that once once you deploy the bicep template
+
+Create a resource group SnakeVenomRG. Go back to the cloud shell
+
+    git clone https://github.com/sebug/snake-venom
+    cd snake-venom
+    az deployment group create -f ./main.bicep -g SnakeVenomRG
