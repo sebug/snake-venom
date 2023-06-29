@@ -35,7 +35,13 @@ build {
 
   provisioner "shell" {
     execute_command = "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'"
-    inline          = ["apt-get update", "apt-get upgrade -y", "apt-get -y install nginx", "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"]
+    inline          = ["apt-get update",
+    "apt-get upgrade -y",
+    "apt-get install -y qemu-kvm virt-top libvirt-bin",
+    "mkdir -p /var/kvm/images",
+    "apt-get install -y virtinst",
+    "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+    ]
     inline_shebang  = "/bin/sh -x"
   }
 
